@@ -1,4 +1,6 @@
-# SQA Project Part 2
+# Ticket King
+
+Ticket King is a ticket selling software developed using Java and C++. Front end was created in C++ and tested using batch scripts. Back end was created in Java and tested using JUnit as well as batch scripts.
 
 ## How to build
 Linux
