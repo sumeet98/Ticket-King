@@ -1,0 +1,14 @@
+To run with:
+Linux (preferred):
+1. merge.sh
+2. daily.sh
+3. weekly.sh
+4. Take a look at outputFiles directory for the resulting output tickets, users, terminal log
+5. (Optional) daily_backend_only_example.sh (to run the backend only)
+
+Windows (backup):
+1. windowsFrontEndDaily.bat (to complete a transaction of the front end, type: login, then Admin, then logout)
+2. windowsMergeScript.bat
+3. windowsDailyScript.bat
+4. windowsWeeklyScript.bat
+5. Take a look at outputFiles directory for the resulting output tickets, users, terminal log

@@ -1,0 +1,3 @@
+01 NewBrokeUser    FS 000000.00
+01 NewRichUser     FS 099999.99
+00 AdminTest       AA 000500.00

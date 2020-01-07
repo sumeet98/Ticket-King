@@ -1,0 +1,105 @@
+ ,Command #,Test name,Reason,Input,Output
+General,00,CheckLength,Test if the command length isn't beyond the max length.,login thelongestnamethatcouldexistonworldicreated logout,Error: Command length is beyond MAX_LENGTH.
+,01,CheckCharacters,Test if the command doesn't have any illegal characters.,login u͓̝͢s̞̙̞̹ern͉̫̤̫a̢͉̠̹̬m̷͚̥͎e͇̲̯͕ logout,Error: Only unicode characters accepted.
+,02,CheckValidFile,Tests if the file type is valid.,login buyer logout,
+Login,00,CheckDenyTransaction,Test to see if all transaction are being denied.,sell logout,No command selected
+,01,CheckFile,Tests if a file is being read.,login Admin buy Pigeon Wednesday 1 Example2 yes logout,
+,02,CheckCorrectFile,Test if the file being read is correct.,login Admin logout,
+,03,CheckAskNameNone,Test if the name is blank.,login logout,
+,04,CheckAskParamaters,Test if the command only accepts one parameter.,login Admin 02 logout,No command selected
+,05,CheckParamaterSize,Tests if the command doesnt except more than max characters. (15),login Admin1111111111111 logout,Error: Username should be in 15 characters.
+,06,CheckValidUser,Test if the name is valid and exists.,login Adminlogout,
+,07,CheckReadTicket,Test if the available tickets file is being read.,login Admin buy Pigeon Wednesday 4 Example2 yes logout,
+,08,CheckAcceptTransactions,Test if transactions are being accepted.,login Example2 sell Pigeon Wednesday 30 1 logout,
+,09,CheckAfterLogin,Tests if the user is logged in or not.,login Admin logout,
+,10,CheckLoginAfterLogin,Tests to see if user cannot login after a login.,login Admin Login Admin logout,
+,11,CheckUserLogin,Tests to see if User can only use unprivileged commands.,login buyer create Example3 0 logout,Error: User is not an admin
+,12,CheckAdminLogin,Test to see if Admincan use all commands.,login Admin create FS user 0 delete user buy event Example2 1 sell event2 10 1 logout,
+Logout,00,CheckSubsequentLogin,Tests to see if a user can login again after logging out.,login buyer logout login buyer logout,
+,01,CheckWriteFail,Tests to see if the file does not exist.,login buyer logout login buyer logout,
+,02,CheckWriteComplete,Tests to see if the file is written.,login buyer logout login buyer logout,
+,03,CheckTransaction,Tests to see if any transactions work after logout.,login buyer logout login buyer logout sell logout,
+,04,CheckDoubleLogout,Tests to see if logout cannot be done twice.,login buyer logout logout,
+Create,00,CheckCreateAdmin,Tests if admins can create accounts.,login Admin create FS Example1 0 logout,
+,01,CheckCreateUser,Tests if users cannot create accounts.,login buyer create logout,
+,02,CheckUserDistinct,Tests if the username is distinct.,login Admin create Adminw,
+,03,UserLengthMin,Tests if the new username’s length is below min.,login Admin create FS 0 logout,Error: Username cannot be empty.
+,04,UserLengthMax,Tests if the new username’s length is beyond max.,login Admin create FS Eample2222222222222222222222 0 logout,Error: Username should less than 16 characters.
+,05,UserLengthValid,Tests if the new username’s length is between 0 (exclusive) and 15 (inclusive),login Admin create FS Example1 0 logout,
+,06,CheckAdminAdd,Tests if a Admincan add a Adminaccount,login Admin create AA Example1 0 logout,
+,07,CheckFSAdd,Tests if a Admincan add a FS account.,login Admin create FS Example1 0 logout,
+,08,CheckBSAdd,Tests if an Admincan add BS acc.,login Admin create BS Example1 0 logout,
+,09,CheckSSAdd,Test if a can Admincan add as SS acc.,login Admin create SS Example1 0 logout,
+,10,CheckSaveFail,Tests if create saved to the Daily Transaction File not correctly.,login Admin create SS Example1 0 logout,Error: Fail on witting to file.
+,11,CheckCreditValidInput,Tests if the user inputs a nonvalid text.,login Admin create SS Example1 12a logout,Error: Credit should only contain numbers.
+,12,CheckCreditMin,Tests if it handles user inputting an negative number.,login Admin create SS Example1 -1 logout,Error: Credit should grater or equal than 0.
+,13,CheckCreditValid,Tests if it handles user inputting valid number.,login Admin create SS Example1 15 logout,
+,14,CheckCreditMax,Tests if it handles user adding above max.,login Admin create SS Example1 100000000 logout,"Error: Credit should less than 1,000,000."
+,15,CheckIfSpace,Tests if it handles a user putting in an account name that contains a space,login Admin create SS 0 logout,Error: Username cannot be empty.
+,16,CheckUsernameCharacters,Test if the command doesn't have any illegal characters.,login u͓̝͢s̞̙̞̹ern͉̫̤̫a̢͉̠̹̬m̷͚̥͎e͇̲̯͕ logout,Error: Only unicode characters accepted.
+Delete,00,CheckDeleteAdmin,Tests if admins can delete.,login Admin delete Example1 logout,
+,01,CheckDeleteUser,Tests if users can't use delete.,login Admin create SS Example1 15 logout,Error: User is not an admin
+,02,CheckUserCurrent,Tests if not the current user,login Admin delete Admin logout,Cannot delete yourself.
+,03,CheckValidUsername,Tests if the username is valid.,login Admin delete logout,
+,04,CheckUserExist,Tests if the user exists.,login Admin delete Example-not-Exist logout,Error: User does not exist.
+,05,CheckParamaters,Tests if it only accepts usernames. (15 characters at most),login Admin delete Example111111111111111111111111 logout,Error: Username should be in 15 characters.
+,06,CheckSave,Tests if delete saved to the Daily Transaction File correctly,login Admin delete Example1 logout,Error: Fail on witting to file.
+,07,CheckDeleteTickets,Tests if delete deletes all the required tickets,login Admin delete Example1 logout,
+Sell,00,CheckSellAdmin,Test if an Admincan use the command.,login Admin sell event 10 1 logout,
+,01,CheckSellBS,Test if a BS can use the command.,login buyer sell event 10 1 logout,Error: User is not an admin
+,02,CheckSellSS,Test if a SS can use the command.,login seller sell event 10 1 logout,
+,03,CheckSellFS,Test if an FS can use the command.,login fuller sell event 10 1 logout,
+,04,CheckEventTitle,Tests if the event title is valid.,login seller sell u͓̝͢s 10 1 logout,Error: Not a valid event name.
+,05,CheckSalePrice,Tests if the sale price is valid.,login fuller sell event 10sa0 1 logout,Error: Invalid sell price.
+,06,CheckPriceValueMin,Test if the value is in the below the range.(0<),login fuller sell event -1 1 logout,Error: Sell price cannot be negative.
+,07,CheckPriceValueMax,Tests if the value is above the range. (>999.99),login fuller sell event 100000 1 logout,Error: Sell price should be less than 1000
+,08,CheckPriceValueValid,Tests if the value is valid. (0.01<x<999.99),login fuller sell event 10 1 logout,
+,10,CheckTitleLengthMin,Test if the length of a Title is below minimum.,login seller sell 10 1 logout,Error: Event name length should longer than 0 characters.
+,11,CheckTitleLengthMax,Tests if the of the title is above maximum.,login seller sell thelongestnamethatcouldexistonworldicreated 10 1 logout,Error: Event name length should less than 26 characters.
+,12,CheckTitleLengthValid,Tests if the length of the title is valid.,login seller sell normalname 10 1 logout,
+,13,CheckIfMaxSell,Test if the number of ticket to sell is smaller than 100,login seller sell event 10 101 logout,Error: Number of tickets in one sell should not more than 100.
+,14,CheckSessionStatus,Test if the session is closed.,login seller sell event 10 1 logout,
+,15,CheckParamaters,Tests to see if sell only accepts 3 paramaters.,login seller sell event 10 1 abc logout,Error: Sell takes exactly 3 arguments.
+Buy,00,CheckBuyAdmin,Test if an Adminis valid to perform a buy action.,login Admin buy event 1 Example2 yes logout,
+,01,CheckBuyBS,Test if a BS can use the command.,login buyer buy event 1 Example2 yes logout,
+,02,CheckBuySS,Test if a SS can use the command.,login seller buy event 1 Example2 yes logout,Error: Permission denied.
+,03,CheckBuyFS,Test if an FS can use the command.,login fuller buy event 1 Example2 yes logout,
+,04,CheckBuyUser,Tests if a user can use the buy transaction.,login buyer buy event 1 Example2 yes logout,
+,05,CheckReaminTickets,Test if the remain number of ticket of event is greater than 0.,login Example2 sell event 10 0 logout login buyer buy event 4 Example2 yes logout,Error: Not enough tickets left to buy. 
+,06,CheckTransactionNumber,Test if the counter of transaction is greater than 4.,login buyer buy event 100 Example2 yes logout,Error: Maximun 4 tickets can buy in one buy transaction.
+,07,CheckBuyEvent,Tests if the event is valid.,login buyer buy 1 Example2 yes logout,Error: Must have a event name.
+,08,CheckNumTicketMin,Test if the value is below 0.,login buyer buy -1 Example2 yes logout,Error: Number of tickets to buy should greater than 0.
+,09,CheckNumTicketValid,Tests if the number of tickets is valid. (0.01<x<999.99),login buyer buy event 1 Example2 yes logout,
+,10,CheckUsername,Tests if the username is valid.,login buyer buy event 1 yes logout,Error: Must provide a seller.
+,11,CheckDisplayCPT,Tests if the display for CPT is correct.,login buyer buy event 1 logout,event      for 1 ticket(s)?  Confirm to buy?
+,12,CheckDisplayTC,Tests if the display for TC is correct.,login buyer buy event 1 logout,event      for 1 ticket(s)?  Confirm to buy?
+,13,CheckYes,Tests if user inputting yes allows the transaction to continue.,login buyer buy event 1 yes logout,
+,14,CheckNo,Tests if the user inputting no stops the transaction.,login buyer buy event 1 no logout,
+,15,CheckSubtract,Tests to see if the number of tickets is subtracted from the seller’s inventory.,login Example2 sell event 10 3 logout login buyer buy event 2 Example2 yes logout,
+,16,CheckSave,Tests to see if the transaction is saved to the file.,login buyer buy event 1 yes logout,
+,17,CheckAdminTickets,Tests to see the Admincan buy all tickets.,login Admin buy event 1 Example2 yes buy event2 1 Example2 yes logout,
+,18,CheckBuySame,Tests to see if the a FS cant buy their own ticket.,login fuller sell event 10 1 buy event 1 fuller yes logout,Error: Not able to buy user own tickets.
+,19,CheckValidTickets,Tests to see if there is enough tickets to buy.,login Example2 sell event 10 2 logout login buyer buy event 4 Example2 yes logout,Error: Not enough tickets left to buy. 
+,20,CheckValidSeller,"Tests to see if the username inputted is FS,SS or Admin",login fuller sell event 10 1 buy event 1 buyer yes logout,Error: Seller cannot be Standared-buy.
+Refund,00,CheckAdmin,Tests if Admincan use this command.,login Admin refund buyer Exapmle2 1 logout,
+,01,CheckUser,Tests if a user cannot use refund.,login buyer refund Admin Exapmle2 1 logout,Error: permission denied.
+,02,CheckParamaterList,Tests to see that it accepts only three parameters.,login Admin refund buyer Exapmle2 1 someelse logout,Error: refund takes exactly 1 argument.
+,03,CheckBuyer,Tests to see if the buyer is valid.,login Admin refund no exist Exapmle2 1 logout,Error: Buyer is not exist.
+,04,CheckSeller,Tests to see if the seller is valid.,login Admin refund buyer not exist 1 logout,Error: Seller is not exist.
+,05,CheckCredit,Tests to see if the credit is valid.,login Admin refund buyer Exapmle2 k logout,Error: Not a valid credit. 
+,06,CheckBalanceUser,Tests to see if user’s balance doesn't go beyond 999999.99 when refunded.,login Admin refund buyer Exapmle2 1000000 logout,Error: Refund credit should below 1000000.
+,07,CheckBalanceSeller,Tests to see if seller’s balance doesn't go below 0.,login Admin refund buyer Exapmle2 -1 logout,Error: Refund credit should greater or equal than 0.
+,08,CheckUserBalUpdate,Tests to see if the user balance updated.,login Admin refund buyer Exapmle2 1 logout,
+,09,CheckSellerBalUpdate,Tests to see if the seller balance updates.,login Admin refund buyer Exapmle2 1 logout,Example2      FS 999998.99 (Account file)
+,10,CheckSave,Tests to see if the transaction is saved in the DTF.,login Admin refund buyer Exapmle2 1 logout,
+,11,CheckExceed,Test to see if credit exceed after add credit to an account.,login Admin refund buyer Exapmle2 999999.99 logout,Error: Buyer account credit overflow.
+AddCredit,00,CheckPrivilege,Tests to see if the user is admin.,login Admin addcredit 100 buyer logout,
+,01,CheckParamatersAddCreditAdmin,Tests to see if it only accepts two parameters IN Adminmode,login Admin addcredit 100 buyer someeles logout,Error: addcredit in Adminmode takes exactly 2 arguments.
+,02,CheckCreditAdmin,Tests to see if credit is valid.,login Admin addcredit 1s0 buyer logout,Error: Not a valid credit. 
+,03,CheckUser,Tests to see if user is valid.,login Admin addcredit 100 not exist logout,Error: User is not exist.
+,04,CheckAddChange,Tests to see if the credit balance is not add if 0,login Admin addcredit 0 buyer logout,
+,05,CheckAddMin,Tests to see if the credit balance is not below 0.,login Admin addcredit -1 buyer logout,Error:  credit to add cannot below 0.
+,06,CheckAddCorrect,Tests to see if credit balance is added if it is between 0.01-999.99,login Admin addcredit 20 buyer logout,
+,07,CheckAddMax,Tests to see if the balance doesnt add credits above 999.99,login Admin addcredit 10000 buyer logout,Error:  credit to add cannot over 1000.
+,08,CheckParamUser,Tests to see if only accepts one command if the user is an normal user.,login buyer addcredit 20 logout,
+,09,CheckCreditUser,Tests to see if credit is valid.,login buyer addcredit 2s0 logout,Error: Not a valid credit. 

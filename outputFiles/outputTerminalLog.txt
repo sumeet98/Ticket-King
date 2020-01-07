@@ -1,0 +1,24 @@
+[Input] Tickets were loaded and appended to the Ticket array class -> A Bad Show                AdminSeller     005 001.00
+[Input] Tickets were loaded and appended to the Ticket array class -> A Good Show               AdminSeller     020 005.00
+[Input] Users were loaded and appended to the User array class -> AdminTest       AA 000500.00
+[Input] Users were loaded and appended to the User array class -> AdminSeller     AA 000500.00
+[Input] Users were loaded and appended to the User array class -> usernameAwesome BS 000010.02 
+[Input] Users were loaded and appended to the User array class -> myNameIsAwesome AA 000034.30
+[Input] Users were loaded and appended to the User array class -> UOITVendor      SS 025000.00
+[usernameAwesome] is deleting a user named: [usernameAwesome]
+A user is trying to buy ticket named: [A Good Show]
+[AdminTest] purchased ticket from event: [A Good Show], buying [2] ticket(s) for [5.0]
+Credits before and after: [500.0] and [490.0]
+[AdminTest] is logging off. Purchases being updated
+[UOITVendor] is selling a ticket named: [UOIT Hackathon], for a total of [150] ticket(s) for [1.0] each
+A user is trying to buy ticket named: [A Good Show]
+A user is trying to buy ticket named: [UOIT Hackathon]
+[AdminTest] purchased ticket from event: [A Good Show], buying [2] ticket(s) for [5.0]
+Credits before and after: [500.0] and [490.0]
+[AdminTest] purchased ticket from event: [UOIT Hackathon], buying [16] ticket(s) for [1.0]
+Credits before and after: [490.0] and [474.0]
+[AdminTest] is logging off. Purchases being updated
+[NewBrokeUser] is a new user being created
+[NewRichUser] is a new user being created
+Wrote to new file /C:/Users/kenle/OneDrive/Desktop/SQA-Project-Part2/outputFiles/outputTicketFile.txt
+Wrote to new file /C:/Users/kenle/OneDrive/Desktop/SQA-Project-Part2/outputFiles/outputUserFile.txt

@@ -1,0 +1,6 @@
+AdminTest       AA 000474.00
+AdminSeller     AA 000520.00
+myNameIsAwesome AA 000034.30
+UOITVendor      SS 025016.00
+NewBrokeUser    FS 000000.00
+NewRichUser     FS 099999.99

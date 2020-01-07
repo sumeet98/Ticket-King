@@ -1,0 +1,52 @@
+Refer to Phase_6_Defect_Report.pdf in the main directory or attached file for the table format.
+
+Raw Contents: 
+Phase 6 Defect Report Table
+
+Substring mismatch
+  System null exception and out of bounds error, due looking for specific substrings that do not exist (ie. character substrings 46 to 52 to get the price of a transaction line) 
+    Fixed transaction file to follow correct and exact spacing standard (25 chars event name, 15 chars username, 3 chars quantity, 6 chars price)
+
+Sell and logout daily transaction malfunction
+  Missed trimming whitespaces from event and user names from sell ticket transaction and logoff transaction
+    Trimmed whitespaces, allowing transactions to sell and logout correctly
+
+Program out of bounds error on execution
+  Exception and out of bounds on execution from Executer
+    Fixed indexing error, double deletion on arrayList, and added a few safety try/catch and throw exceptions
+
+Daily script program null exception error
+  Daily script runs program with arguments which program does not have yet
+    Added arguments so program runs taking ticket, user, and transaction file, altering Driver, SystemIO, and Parser systems
+
+Program null exception error
+  Not adding program parameters result in null exception error (ie. Java myProgram), ticket, user, and transaction file is required 
+    Surrounded in try/catch and allowed program to default to specific files if unspecified, making parameters optional
+
+Daily script mismatch
+  Out of bounds and null exception error given when running daily script
+    Fixed parameters and altered contents of ticket, user, and transaction file to meet new program specifications
+
+Script run error
+  Scripts still do not run successfully (front end transaction, daily, weekly)
+    Diagnosed main .cpp and .java files for parameters, fixed parameter inputs
+
+Unknown execution results
+  Program runs without errors but results are unknown
+    Added terminal output file to include actions the system is taking and when a user performs any type of transaction, also helping with debugging the system
+
+Buy/Sell not actually updating in output file
+  Program runs but does not actually update new tickets or user credits in output file
+    Added a findUserByIndexName(string name) function to match name to indexing system
+
+Buy/Sell updates credits but not ticket amounts
+  Ticket amounts when buying or selling is not updating correctly
+    Added a findTicketByIndexName(string name) function to match name to indexing system
+
+Buy/Sell double add and double spending
+  Sell n tickets will append 2 lines in new output log of that same ticket instead of 1 line
+    Deleted an extra double add and double spending transaction
+
+Refund cannot find refunder and refundee
+  Indexing or refund function cannot find refunder or refundee in the user array
+    Attempted fix on indexing, but is known issue, problem still persists

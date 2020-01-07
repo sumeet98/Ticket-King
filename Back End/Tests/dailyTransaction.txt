@@ -1,0 +1,14 @@
+02 usernameAwesome BS 00001002 myNameIsAwesome AA 0034.3
+04 A Good Show               AdminSeller     002 005.00
+00 AdminTest       AA 000500.00
+03 UOIT Hackathon            UOITVendor      150 001.00
+00 UOITVendor      SS 025000.00
+04 A Good Show               AdminSeller     002 005.00
+04 UOIT Hackathon            UOITVendor      016 001.00
+00 AdminTest       AA 000500.00
+01 NewBrokeUser    FS 000000.00
+01 NewRichUser     FS 099999.99
+00 AdminTest       AA 000500.00
+06 AdminSeller     AA 000275.75
+05 AdminTest       AdminSeller       000010.00
+00 AdminTest       AA 000500.00

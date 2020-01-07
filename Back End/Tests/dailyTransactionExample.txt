@@ -1,0 +1,4 @@
+02 usernameAwesome BS 00001002 myNameIsAwesome AA 0034.3
+03 TestEvent                 AdminTest       005 002.50
+04 A Good Show               AdminSeller     001 005.00
+00 AdminTest       AA 000100.00
